@@ -1,0 +1,2 @@
+# KlikinTest
+Show places nearby
