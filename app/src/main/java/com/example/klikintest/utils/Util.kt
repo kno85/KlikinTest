@@ -1,5 +1,7 @@
 package com.example.klikintest
 
+import com.example.klikintest.domain.Place
+
 fun getMockedPlaceList(): List<Place> {
     val list= ArrayList<Place>()
     for(i in 1..10){

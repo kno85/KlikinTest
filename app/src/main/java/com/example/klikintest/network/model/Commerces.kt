@@ -52,7 +52,7 @@ data class Commerces(
     @SerializedName("id")
     var id:String?,
     @SerializedName("latitude")
-    var latitude:Double?,
+    var latitude:String?,
     @SerializedName("longitude")
-    var longitude:Double?
+    var longitude:String?
 )

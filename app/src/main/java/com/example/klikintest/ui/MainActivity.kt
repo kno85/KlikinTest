@@ -1,10 +1,11 @@
-package com.example.klikintest
+package com.example.klikintest.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import com.example.klikintest.R
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController

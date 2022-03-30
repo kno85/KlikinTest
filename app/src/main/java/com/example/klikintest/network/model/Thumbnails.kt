@@ -2,7 +2,7 @@ package com.example.klikintest.network.model
 
 import com.google.gson.annotations.SerializedName
 
-class Thumbnails(
+data class Thumbnails(
     @SerializedName("small")
     var small:String?,
     @SerializedName("medium")

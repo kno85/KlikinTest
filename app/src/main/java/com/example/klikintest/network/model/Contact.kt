@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class Contact (
     @SerializedName("phone")
-    var zip:Int?,
+    var phone:String?,
     @SerializedName("email")
-    var city:String?,
+    var email:String?,
     @SerializedName("web")
-    var country:String?
+    var web:String?
 )

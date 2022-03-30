@@ -1,4 +1,4 @@
-package com.example.klikintest
+package com.example.klikintest.ui.main
 
 import android.view.View
 import android.view.ViewGroup
@@ -7,9 +7,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import com.bumptech.glide.Glide
+import com.example.klikintest.R
+import com.example.klikintest.domain.Commerces
 
 
-class CustomAdapter(val placeList:List<Place>,val listener:viewActions) : RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
+class CustomAdapter(val placeList: List<Commerces>, val listener: viewActions) : RecyclerView.Adapter<CustomAdapter.CustomViewHolder>() {
 
     override fun onCreateViewHolder(parentView: ViewGroup, viewType: Int): CustomViewHolder {
         val view = LayoutInflater.from(parentView.context)
@@ -25,17 +27,20 @@ class CustomAdapter(val placeList:List<Place>,val listener:viewActions) : Recycl
     override fun getItemCount(): Int= placeList.size
 
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(place: Place, listener: viewActions) {
+        fun bind(commerce: Commerces, listener: viewActions) {
             val imageView = itemView.findViewById<ImageView>(R.id.image)
-            itemView.findViewById<TextView>(R.id.title).text= place.name
-            itemView.findViewById<TextView>(R.id.description).text= place.description
-            Glide.with(itemView.context).load(R.drawable.ic_launcher_background).into(imageView)
-            itemView.setOnClickListener {listener.onItemClick(place.id!!)}
+            itemView.findViewById<TextView>(R.id.title).text= commerce.name
+            itemView.findViewById<TextView>(R.id.description).text= commerce.description
+            if(commerce.photos?.size!! >0 && commerce.photos?.get(0)?.thumbnails?.medium!!.isNotEmpty()) {
+                Glide.with(itemView.context).load(commerce.photos?.get(0)?.thumbnails?.medium)
+                    .into(imageView)
+            }
+            itemView.setOnClickListener {listener.onItemClick(commerce)}
         }
 
     }
 
 }
 interface viewActions{
-    fun onItemClick(itemId:Int)
+    fun onItemClick(commerce : Commerces)
 }

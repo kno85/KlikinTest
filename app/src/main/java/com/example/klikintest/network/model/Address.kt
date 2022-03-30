@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Address (
     @SerializedName("zip")
-    var zip:Int?,
+    var zip:String?,
     @SerializedName("city")
     var city:String?,
     @SerializedName("country")

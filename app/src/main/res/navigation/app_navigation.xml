@@ -6,7 +6,7 @@
     app:startDestination="@id/myHomeFragment">
     <fragment
         android:id="@+id/myHomeFragment"
-        android:name="HomeFragment"
+        android:name="com.example.klikintest.ui.main.HomeFragment"
         android:label="fragment_my_home"
         tools:layout="@layout/fragment_main">
         <action android:id="@+id/action_myHomeFragment_to_detailFragment"
@@ -18,7 +18,7 @@
     </fragment>
 
     <fragment android:id="@+id/detailFragment"
-        android:name="DetailFragment"
+        android:name="com.example.klikintest.ui.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
 
