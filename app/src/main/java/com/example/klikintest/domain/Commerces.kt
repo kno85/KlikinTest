@@ -29,5 +29,6 @@ data class Commerces(
     var active:Boolean?=false,
     var id:String?="",
     var latitude:String?="",
-    var longitude:String?=""
+    var longitude:String?="",
+    var distance:String?=null
 ):Serializable

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">KlikinTest</string>
+    <string name="title_location_permission">Location Permission</string>
+    <string name="text_location_permission">"Please grant the location permission"</string>
+    <string name="ok">Ok</string>
+    <string name="lat">lat</string>
+    <string name="lon">lon</string>
+
+
 </resources>

@@ -30,6 +30,7 @@ class CustomAdapter(val placeList: List<Commerces>, val listener: viewActions) :
         fun bind(commerce: Commerces, listener: viewActions) {
             val imageView = itemView.findViewById<ImageView>(R.id.image)
             itemView.findViewById<TextView>(R.id.title).text= commerce.name
+            itemView.findViewById<TextView>(R.id.distance).text= commerce.distance
             itemView.findViewById<TextView>(R.id.description).text= commerce.description
             if(commerce.photos?.size!! >0 && commerce.photos?.get(0)?.thumbnails?.medium!!.isNotEmpty()) {
                 Glide.with(itemView.context).load(commerce.photos?.get(0)?.thumbnails?.medium)

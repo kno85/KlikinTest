@@ -1,8 +1,7 @@
-package com.acano.marvel.usecases
+package com.example.klikintest.usecases
 
 import com.example.klikintest.ui.model.UiResult
-import com.example.klikintest.usecases.BaseUseCase
 
-interface UseCasesInterface: BaseUseCase {
+interface UseCasesInterface: BaseKoin {
     suspend fun invokeList(): UiResult
 }

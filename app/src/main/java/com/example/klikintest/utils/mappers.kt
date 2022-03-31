@@ -1,11 +1,14 @@
 package com.example.klikintest.utils
 
+import android.location.Location
 import com.example.klikintest.domain.*
 import com.example.klikintest.network.model.Address
 import com.example.klikintest.network.model.Config
 
-
-fun toDomainCommerces(items: List<com.example.klikintest.network.model.Commerces>?): List<Commerces>? {
+fun toDomainCommerces(
+    items: List<com.example.klikintest.network.model.Commerces>?,
+    currentLocation: Location?
+): List<Commerces>? {
         if (items != null) {
             return(items.map {
                 Commerces(
@@ -17,13 +20,29 @@ fun toDomainCommerces(items: List<com.example.klikintest.network.model.Commerces
                     contact = mapContact(it.contact),
                     logo = mapLogo(it.logo),
                     photos = mapPhotos(it.photos),
-                    social = mapSocial(it.social)
+                    social = mapSocial(it.social),
+                    distance = calculateDistance(currentLocation, it.latitude, it.longitude)
                 )
             })
         }
         else
             return emptyList()
     }
+
+private fun calculateDistance(currentLocation: Location?, latitude: String?, longitude: String?): String? {
+    val l1 = currentLocation
+    val l2 = Location("Two")
+
+    var distance_bw_one_and_two:String?= null
+
+    if (l1!= null && latitude != null && longitude != null) {
+        if(latitude.isNotEmpty() && longitude.isNotEmpty())
+            l2.latitude = latitude.toDouble()
+            l2.longitude = longitude.toDouble()
+            distance_bw_one_and_two = l1.distanceTo(l2).toString()
+    }
+  return distance_bw_one_and_two
+}
 
 private fun mapSocial(social: com.example.klikintest.network.model.Social?): Social {
     return com.example.klikintest.domain.Social(

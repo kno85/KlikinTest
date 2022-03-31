@@ -58,6 +58,8 @@ dependencies {
     implementation "io.insert-koin:koin-android:3.1.5"
     // Koin Java Compatibility
     implementation "io.insert-koin:koin-android-compat:3.1.5"// No more koin-android-viewmodel, koin-android-scope, koin-android-fragment
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

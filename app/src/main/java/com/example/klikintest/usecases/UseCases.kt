@@ -1,6 +1,6 @@
 package com.example.klikintest.usecases
 
-import com.acano.marvel.usecases.UseCasesInterface
+import android.location.Location
 import com.example.klikintest.repository.DataRepository
 import com.example.klikintest.ui.model.UiResult
 
