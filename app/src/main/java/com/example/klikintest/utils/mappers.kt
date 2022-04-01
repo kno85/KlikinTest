@@ -4,6 +4,7 @@ import android.location.Location
 import com.example.klikintest.domain.*
 import com.example.klikintest.network.model.Address
 import com.example.klikintest.network.model.Config
+import kotlin.math.roundToInt
 
 fun toDomainCommerces(
     items: List<com.example.klikintest.network.model.Commerces>?,
@@ -39,7 +40,7 @@ private fun calculateDistance(currentLocation: Location?, latitude: String?, lon
         if(latitude.isNotEmpty() && longitude.isNotEmpty())
             l2.latitude = latitude.toDouble()
             l2.longitude = longitude.toDouble()
-            distance_bw_one_and_two = l1.distanceTo(l2).toString()
+            distance_bw_one_and_two = l1.distanceTo(l2).roundToInt().toString()
     }
   return distance_bw_one_and_two
 }

@@ -18,7 +18,7 @@
         tools:text="TITLE" />
 
     <TextView
-        android:id="@+id/distance"
+        android:id="@+id/distanceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -26,9 +26,17 @@
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintTop_toBottomOf="@+id/title"
         tools:text="DISTANCE" />
-
     <TextView
-        android:id="@+id/description"
+        android:id="@+id/distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/distanceLabel"
+        app:layout_constraintTop_toBottomOf="@+id/distanceLabel"
+        tools:text="1000 meters" />
+    <TextView
+        android:id="@+id/address"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
@@ -38,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="@+id/distance"
         app:layout_constraintTop_toBottomOf="@+id/distance"
-        tools:text="DESCRIPTION" />
+        tools:text="ADDRESS" />
 
     <ImageView
         android:id="@+id/image"

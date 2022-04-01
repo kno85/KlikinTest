@@ -33,9 +33,11 @@ class HomeViewModel() : ViewModel(), KoinComponent {
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String> = _errorMessage
 
+    init {
+        submitHeroList()
+    }
 
-
-     fun submitHeroList() {
+     private fun submitHeroList() {
         viewModelScope.launch {
             fetchCommercesList()
                 .catch { err ->
@@ -43,12 +45,28 @@ class HomeViewModel() : ViewModel(), KoinComponent {
                 }
                 .collect { list ->
                     if(list.heroList!=null){
-                        _commercesList.value = list.heroList!!.sortedBy { it.distance }
+                        _commercesList.value = list.heroList!!.sortedBy { it.distance?.toInt() }
+                        if(!_commercesList.value!!.get(0).distance.isNullOrEmpty()){
+                            _shortCommercesList.value= _commercesList.value!!.subList(0,getLastIndex(
+                                _commercesList.value!!
+                            ))
+                        }
                     }else{
                         _errorMessage.value= list.errorMessage!!
                     }
                 }
         }
+    }
+
+    private fun getLastIndex(value: List<Commerces>): Int {
+        var index=0
+        for (commerce in value){
+
+            if(commerce.distance?.toInt()!! <= 1000){
+                index=value.indexOf(commerce)
+            }
+        }
+        return index
     }
 
 

@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.klikintest.R
 import com.example.klikintest.domain.Commerces
@@ -26,19 +27,23 @@ class CustomAdapter(val placeList: List<Commerces>, val listener: viewActions) :
 
     override fun getItemCount(): Int= placeList.size
 
-    class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class CustomViewHolder(mitemView: View) : RecyclerView.ViewHolder(mitemView) {
         fun bind(commerce: Commerces, listener: viewActions) {
             val imageView = itemView.findViewById<ImageView>(R.id.image)
             itemView.findViewById<TextView>(R.id.title).text= commerce.name
-            itemView.findViewById<TextView>(R.id.distance).text= commerce.distance
-            itemView.findViewById<TextView>(R.id.description).text= commerce.description
+            itemView.findViewById<TextView>(R.id.distance).text= commerce.distance+" meters"
+            itemView.findViewById<TextView>(R.id.address).text= commerce.social?.facebook
             if(commerce.photos?.size!! >0 && commerce.photos?.get(0)?.thumbnails?.medium!!.isNotEmpty()) {
-                Glide.with(itemView.context).load(commerce.photos?.get(0)?.thumbnails?.medium)
+                Glide.with(imageView.context).load(commerce.photos?.get(0)?.thumbnails?.medium)
+                    .into(imageView)
+            }else{
+                Glide.with(itemView.context).load(
+                    R.drawable.placeholder)
                     .into(imageView)
             }
+
             itemView.setOnClickListener {listener.onItemClick(commerce)}
         }
-
     }
 
 }

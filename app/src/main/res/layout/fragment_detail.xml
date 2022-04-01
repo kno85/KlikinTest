@@ -24,7 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_image"
         tools:text="TITLE" />
-
     <TextView
         android:textSize="12sp"
         android:id="@+id/detail_description"
